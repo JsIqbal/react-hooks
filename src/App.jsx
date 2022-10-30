@@ -1,6 +1,6 @@
 // import { useState, createContext, useContext } from 'react'
-// import reactLogo from './assets/react.svg'
-// import './App.css'
+import reactLogo from './assets/react.svg'
+import './App.css'
 
 // const UserContext = createContext();
 
@@ -43,50 +43,72 @@
 
 // export default App
 
-import { useState } from 'react';
+
+
+// import { useState } from 'react';
+
+// function App() {
+//     const [inputs, setinputs] = useState({});
+
+//     const handleSubmit = (event) => {
+//         event.preventDefault();
+//         console.log(inputs);
+//     }
+
+//     const handleChange = (event) => {
+//         const name = event.target.name;
+//         const value = event.target.value;
+
+//         setinputs((values) => ({...values, [name]: value}))
+//     }
+
+//     return(
+//         <>
+//             <form onSubmit={handleSubmit}>
+//                 <label>
+//                     Name 
+//                     <input 
+//                         type="text"
+//                         value={inputs.userName || " "}
+//                         name="userName"
+//                         onChange={handleChange}
+//                     />
+//                 </label>
+//                 <label>
+//                     Age 
+//                     <input 
+//                         type="text"
+//                         value={inputs.age || " "}
+//                         name="age"
+//                         onChange={handleChange}
+//                     />
+//                 </label>
+//                 <input type="submit" />
+//             </form>
+
+//             <div>
+//                 {`created_by: ${inputs.userName}    updated_by: ${inputs.age}`}
+//             </div>
+//         </>
+//     );
+// }
+
+// export default App
+
+
+import { useState, useEffect } from 'react';
 
 function App() {
-    const [inputs, setinputs] = useState({});
+    const [flag, setState] = useState(false);
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(inputs);
-    }
-
-    const handleChange = (event) => {
-        const name = event.target.name;
-        const value = event.target.value;
-
-        setinputs((values) => ({...values, [name]: value}))
-    }
+    useEffect(() => {
+        console.log(flag);
+    }, [flag])
 
     return(
         <>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Name 
-                    <input 
-                        type="text"
-                        value={inputs.userName || ""}
-                        name="userName"
-                        onChange={handleChange}
-                    />
-                </label>
-                <label>
-                    Age 
-                    <input 
-                        type="text"
-                        value={inputs.age || ""}
-                        name="age"
-                        onChange={handleChange}
-                    />
-                </label>
-                <input type="submit" />
-            </form>
-
-            <div>
-                {`created_by: ${inputs.userName}    updated_by: ${inputs.age}`}
-            </div>
+            <h1>Checking out UseEffect</h1>
+            <button onClick={() => setState(!flag)}>Click me!</button>
         </>
     );
 }
